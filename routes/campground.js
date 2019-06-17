@@ -3,11 +3,12 @@ var router=express.Router();
 var Campground=require("../models/campground.js");
 var middleObject=require("../middleware/index.js");
 var NodeGeocoder = require('node-geocoder');
- 
+var configure=require("../confi.js");
+var key=configure.My_Key;
 var options = {
   provider: 'google',
   httpAdapter: 'https',
-  apiKey:'AIzaSyB4kqRiTKoVLJ-tTubqp3d_gSgaDBjtaas',
+  apiKey:key,
   formatter: null
 };
  
@@ -61,14 +62,17 @@ router.post("/",middleObject.isLogin,function(req , res){
 	// res.redirect("/campground");
 });
 router.get("/:id" , function(req , res){
+	var front=configure.Front_Key;
 	var id = req.params.id;
 	Campground.findById(id).populate("comments").exec(function(err,foundCamp){
 		if(err){
 			console.log(err);
 		}
 		else{
+			
+			//console.log(front);
 			//console.log(foundCamp);
-			res.render("campground/show.ejs" , {camp:foundCamp});	
+			res.render("campground/show.ejs" ,{camp:foundCamp,front:front});	
 		}
 	});
 });

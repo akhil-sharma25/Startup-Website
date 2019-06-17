@@ -30,9 +30,11 @@ router.get("/login",function(req,res){
 });
 router.post("/login",passport.authenticate("local",{
 		 	successRedirect:"/campground",
-			failureRedirect:"/login"
+			failureRedirect:"/login",
 		 }),function(req,res){
+	console.log("Tried!!");
 });
+
 router.get("/logout",function(req,res){
 	req.logout();
 	req.flash("success","Log you out");
