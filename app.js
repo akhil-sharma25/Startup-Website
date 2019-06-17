@@ -50,10 +50,5 @@ app.use("/campground",campgroundRoute);
 app.use("/campground/:id/comment",commentRoute);
 app.use(indexRoute);
 // app.listen(3000);
-var reqTimer = setTimeout(function wakeUp() {
-   request("https://still-ocean-89481.herokuapp.com/", function() {
-      console.log("WAKE UP DYNO");
-   });
-   return reqTimer = setTimeout(wakeUp, 1200000);
-}, 1200000);
-app.listen(port);
+
+app.listen(3000);
