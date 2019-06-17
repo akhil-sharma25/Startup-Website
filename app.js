@@ -15,7 +15,15 @@ var commentRoute=require("./routes/comment.js");
 var indexRoute=require("./routes/index.js");
 var methodOverride=require("method-override");
 var flash=require("connect-flash");
-mongoose.connect("mongodb://localhost:27017/yelp_camp",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://Akhil_Sharma:Akhil123%23@cluster0-ixixv.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true , useCreateIndex:true});
+// mongoose.connect('mongodb+srv://Akhil_Sharma:Akhil123%23@cluster0-ixixv.mongodb.net/test?retryWrites=true&w=majority', {
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true
+// }).then(() => {
+// 	console.log('Connected to DB!');
+// }).catch(err => {
+// 	console.log('ERROR:', err.message);
+// });
 app.use(flash());
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended:true}));
