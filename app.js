@@ -16,6 +16,7 @@ var indexRoute=require("./routes/index.js");
 var methodOverride=require("method-override");
 var flash=require("connect-flash");
 mongoose.connect("mongodb+srv://Akhil_Sharma:Akhil123%23@cluster0-ixixv.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true , useCreateIndex:true});
+var port = process.env.PORT || 3000;
 // mongoose.connect('mongodb+srv://Akhil_Sharma:Akhil123%23@cluster0-ixixv.mongodb.net/test?retryWrites=true&w=majority', {
 // 	useNewUrlParser: true,
 // 	useCreateIndex: true
@@ -49,6 +50,4 @@ app.use("/campground",campgroundRoute);
 app.use("/campground/:id/comment",commentRoute);
 app.use(indexRoute);
 // app.listen(3000);
-app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("The YelpCamp Server Has Started!");
-});
+app.listen(port);
