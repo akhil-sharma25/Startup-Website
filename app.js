@@ -16,7 +16,7 @@ var indexRoute=require("./routes/index.js");
 var methodOverride=require("method-override");
 var flash=require("connect-flash");
 // mongoose.connect("mongodb+srv://Akhil_Sharma:Akhil123%23@yelpcamp-ixixv.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true , useCreateIndex:true});
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/yelp_camp",{useNewUrlParser: true });
 var port = process.env.PORT || 3000;
 // mongoose.connect('mongodb+srv://Akhil_Sharma:Akhil123%23@cluster0-ixixv.mongodb.net/test?retryWrites=true&w=majority', {
 // 	useNewUrlParser: true,
